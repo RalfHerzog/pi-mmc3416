@@ -33,16 +33,16 @@ int main(void) {
     int cmfreq_mode = ((mmc3416i.ctl_0_mode >> 2) & 0x03);
     printf("Continuous Read Freq. = 0x%02X\n", cmfreq_mode);
 
-    int sample_freq = 0; // in ms
-    if (cmfreq_mode == 0x00) sample_freq = 1500; // 1.5 Hz
-    else if (cmfreq_mode == 0x01) sample_freq = 77; // 13 Hz
-    else if (cmfreq_mode == 0x02) sample_freq = 40; // 25 Hz
-    else if (cmfreq_mode == 0x03) sample_freq = 20; // 50 Hz
-    else sample_freq = 1500; // 1.5 Hz
+    int sample_time = 0; // in ms
+    if (cmfreq_mode == 0x00) sample_time = 1500; // 1.5 Hz
+    else if (cmfreq_mode == 0x01) sample_time = 77; // 13 Hz
+    else if (cmfreq_mode == 0x02) sample_time = 40; // 25 Hz
+    else if (cmfreq_mode == 0x03) sample_time = 20; // 50 Hz
+    else sample_time = 1500; // 1.5 Hz
 
     while (1) {
         // Sleep for the sample time
-        usleep(sample_freq * 1000);
+        usleep(sample_time * 1000);
 
         // Perform a read to query the angle
         struct mmc3416data mmc3416d;

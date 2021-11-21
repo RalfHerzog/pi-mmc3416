@@ -5,6 +5,9 @@
  * author:      09/04/2021 Frank4DD                             *
  * ------------------------------------------------------------ */
 
+#ifndef PI_MMC3416_H
+#define PI_MMC3416_H
+
 #define I2CBUS        "/dev/i2c-1" // Raspi default I2C bus
 #define I2C_ADDR           "0x30"  // The sensor default I2C addr
 #define PRD_ID               0x06  // MMC3416 responds with 0x06
@@ -86,3 +89,5 @@ extern int set_cmfreq(int);                   // set continuous read frequency
 extern int mmc3416_read();                    // read sensor data
 extern float get_heading();                   // calculate heading from raw data
 extern int delay(long msec);                  // create a Arduino-style delay
+
+#endif //PI_MMC3416_H
